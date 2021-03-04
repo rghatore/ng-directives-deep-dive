@@ -1,9 +1,10 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
+      <!-- (click)="onlyOdd = !onlyOdd">Only show odd numbers</button> -->
       <button
         class="btn btn-primary"
-        (click)="onlyOdd = !onlyOdd">Only show odd numbers</button>
+        (click)="onClick()">Click counter</button>
       <br><br>
       <ul class="list-group">
         <li
@@ -14,9 +15,17 @@
         </li>
       </ul>
       <ng-template [ngIf]="onlyOdd">
-        <p>Only odd</p>
+        <p>Odd number of clicks</p>
       </ng-template>
+      <div *appUnless="onlyOdd">
+        <p>Even number of clicks</p>
+      </div>
     </div>
+  </div>
+  <div [ngSwitch]="count % 2">
+    <p *ngSwitchCase="0">Even number of clicks: {{ count }}</p>
+    <p *ngSwitchCase="1">Odd number of clicks: {{ count }}</p>
+    <p *ngSwitchCase="default">Number of clicks: n/a</p>
   </div>
   <p appBasicHighlight>
     Hello, it's me. Your custom directive <em>BasicHighlight</em> styled element.
@@ -28,3 +37,4 @@
     Hello, it's me. Your custom directive <b>BetterHighlight</b> styled element.
   </p>
 </div>
+
