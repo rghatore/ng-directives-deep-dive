@@ -21,7 +21,10 @@
   <p appBasicHighlight>
     Hello, it's me. Your custom directive <em>BasicHighlight</em> styled element.
   </p>
-  <p appBetterHighlight>
+  <!-- <p appBetterHighlight [defaultColour]="lavender">
+    ^ doesn't work because angular considers anything inside "" as an expression-->
+  <!-- <p appBetterHighlight [defaultColour]="'lavender'" [highlightColour]="'plum'"> -->
+  <p [appBetterHighlight]="'plum'" defaultColour="lavender">
     Hello, it's me. Your custom directive <b>BetterHighlight</b> styled element.
   </p>
 </div>
